@@ -1,0 +1,54 @@
+# ===== PARTE 1: REGISTRO DE PRODUCTOS =====
+
+nombres = []
+precios = []
+
+for i in range(4):
+    print(f"\nProducto {i+1}")
+    
+    nombre = input("Nombre: ")
+    precio = float(input("Precio: "))
+    
+    nombres.append(nombre)
+    precios.append(precio)
+
+
+# ===== PARTE 2: CÁLCULOS =====
+
+total = 0
+precio_mas_alto = 0
+precio_mas_bajo = precios[0]
+
+for precio in precios:
+    total += precio
+    
+    if precio > precio_mas_alto:
+        precio_mas_alto = precio
+        
+    if precio < precio_mas_bajo:
+        precio_mas_bajo = precio
+
+
+# ===== PARTE 3: CLASIFICACIÓN =====
+
+if total < 5000:
+    clasificacion = "Venta baja"
+elif total <= 14999:
+    clasificacion = "Venta media"
+else:
+    clasificacion = "Venta alta"
+
+
+# ===== MOSTRAR RESULTADOS =====
+
+print("\n=== REGISTRO DE PRODUCTOS ===")
+for i in range(4):
+    print(f"Producto {i+1}")
+    print(f"  Nombre: {nombres[i]}")
+    print(f"  Precio: {precios[i]}")
+
+print("\n=== RESULTADOS ===")
+print("Total:", total)
+print("Precio más alto:", precio_mas_alto)
+print("Precio más bajo:", precio_mas_bajo)
+print("Clasificación:", clasificacion)
