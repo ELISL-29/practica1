@@ -1,0 +1,139 @@
+Ejemplos comunes
+# Contar del 1 al 5
+for i in range(1, 6):
+    print(i) # 1 2 3 4 5
+
+# Repetir algo 3 veces
+for _ in range(3):
+    print("Hola!")
+
+# Cuenta regresiva
+for i in range(5, 0, -1):
+    print(i) # 5 4 3 2 1
+range() con listas — acceso por índice
+notas = [85, 70, 92]
+
+# Usando range + len para acceder por índice
+for i in range(len(notas)):
+    print(f"Nota {i+1}: {notas[i]}")
+
+# Nota 1: 85
+# Nota 2: 70
+# Nota 3
+
+*Con enumerate — limpio y directo
+frutas = ["mango", "piña", "lulo"]
+
+for i, fruta in enumerate(frutas):
+    print(f"{i}: {fruta}")
+
+*estudiantes = ["Ana", "Luis", "Sara"]
+
+for num, nombre in enumerate(estudiantes, start=1):
+    print(f"Estudiante {num}: {nombre}")
+
+*Recorrer cada carácter
+palabra = "Python"
+
+for letra in palabra:
+    print(letra)
+
+# P
+# y
+# t
+# h
+# o
+# n
+
+
+*Casos de uso prácticos
+# Contar vocales
+texto = "programacion"
+vocales = 0
+for letra in texto:
+    if letra in "aeiou":
+        vocales += 1
+print(f"Vocales: {vocales}") # 5
+
+# Verificar palíndromo
+palabra = "anilina"
+es_palindromo = palabra == palabra[::-1]
+print(es_palindromo) # True
+Construir una cadena carácter a carácter
+original = "Hola Mundo"
+mayusculas = ""
+
+for c in original:
+    mayusculas += c.upper()
+
+print(mayusculas) # "HOLA MUNDO"
+
+*Ejemplo real: búsqueda con break
+estudiantes = ["Ana", "Luis", "Sara", "Pedro"]
+buscar = input("¿A quién buscas? ")
+
+for i, nombre in enumerate(estudiantes):
+    if nombre == buscar:
+        print(f"Encontrado en posición {i}")
+        break
+else: # se ejecuta si el for terminó sin break
+    print("No encontrado")
+
+Versión tradicional vs. comprensión
+# Tradicional
+cuadrados = []
+for n in range(1, 6):
+    cuadrados.append(n ** 2)
+# [1, 4, 9, 16, 25]
+
+# Con comprensión — una línea
+cuadrados = [n ** 2 for n in range(1, 6)]
+# [1, 4, 9, 16, 25]
+Con condición (filtro)
+notas = [85, 55, 92, 48, 70]
+
+# Solo las aprobadas
+aprobadas = [n for n in notas if n >= 60]
+# [85, 92, 70]
+
+# Transformar texto
+frutas = ["mango", "piña", "lulo"]
+mayus = [f.upper() for f in frutas]
+# ["MANGO", "PIÑA", "LULO"]
+
+
+Ejemplo Completo: Análisis de Notas
+# Recopilar notas de 5 estudiantes
+notas = []
+
+for i in range(1, 6):
+    nota = float(input(f"Nota estudiante {i}: "))
+    notas.append(nota)
+
+# Analizar
+total = 0
+aprobados = 0
+reprobados = 0
+
+for i, nota in enumerate(notas, start=1):
+    total += nota
+    if nota >= 60:
+        aprobados += 1
+    else:
+        reprobados += 1
+promedio = total / len(notas)
+
+# Mostrar reporte
+print("=== Reporte del Grupo ===")
+print(f"Promedio: {promedio:.2f}")
+print(f"Aprobados: {aprobados}")
+print(f"Reprobados: {reprobados}")
+print(f"Mejor nota: {max(notas)}")
+print(f"Peor nota: {min(notas)}")
+
+# Listar quiénes reprobaron
+print("--- Notas reprobadas ---")
+for i, nota in enumerate(notas, start=1):
+    if nota < 60:
+        print(f" Estudiante {i}: {nota}")
+
