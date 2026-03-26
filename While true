@@ -1,0 +1,66 @@
+
+#Código
+contador = 1
+
+while contador <= 5:
+    print(f"Vuelta número {contador}")
+    contador += 1
+
+print("¡Ciclo terminado!")
+
+
+#Patrón clásico: menú
+while True:
+    opcion = input("¿Continuar? (s/n): ")
+
+    if opcion == "n":
+        print("¡Hasta luego!")
+        break
+    else:
+        print("Continuando...")
+
+
+#Ejemplo
+n = 0
+
+while n < 10:
+    n += 1
+    if n % 2 == 0:
+        continue
+    print(n)Vaciar una lista
+
+#tareas = ["lavar", "planchar", "cocinar"]
+
+while tareas:
+    tarea = tareas.pop(0)
+    print(f"Haciendo: {tarea}")
+
+print("¡Todas las tareas listas!")
+
+#Recorrer con while
+frutas = ["manzana", "pera", "uva"]
+i = 0
+
+while i < len(frutas):
+    print(frutas[i])
+    i += 1
+
+
+#import random
+
+secreto = random.randint(1, 100)
+intentos = 0
+
+print("Adivina el número entre 1 y 100")
+
+#while True:
+    numero = int(input("Tu número: "))
+    intentos += 1
+
+    if numero < secreto:
+        print("Muy bajo")
+    elif numero > secreto:
+        print("Muy alto")
+    else:
+        print(f"¡Correcto en {intentos} intentos!")
+        break
