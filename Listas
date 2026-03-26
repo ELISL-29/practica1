@@ -1,0 +1,284 @@
+$Tipos de listas
+# Solo números
+edades = [20, 25, 18, 30]
+
+# Solo texto
+frutas = ["mango", "piña", "papaya"]
+
+# Tipos mixtos
+info = ["Ana", 21, 1.65, True]
+
+# Lista vacía
+vacia = []
+
+
+$Funciones útiles al crear
+# Cuántos elementos tiene
+notas = [85, 90, 78]
+print(len(notas)) # 3
+
+# Crear lista con list()
+letras = list("Python")
+# ['P','y','t','h','o','n']
+
+# Repetir elementos
+ceros = [0] * 5
+# [0, 0, 0, 0, 0]
+
+$Índices positivos (de izquierda a derecha)
+frutas = ["mango", "piña", "papaya"]
+
+print(frutas[0]) # "mango"
+print(frutas[1]) # "piña"
+print(frutas[2]) # "papaya"
+
+$Índices negativos (de derecha a izquierda)
+frutas = ["mango", "piña", "papaya"]
+
+print(frutas[-1]) # "papaya" (último)
+print(frutas[-2]) # "piña"
+print(frutas[-3]) # "mango" (primero)
+
+$Ejemplos básicos
+nums = [10, 20, 30, 40, 50]
+
+nums[1:4] # [20, 30, 40]
+nums[0:3] # [10, 20, 30]
+nums[2:] # [30, 40, 50]
+nums[:3] # [10, 20, 30]
+nums[:] # copia completa
+
+$Con paso
+nums = [10, 20, 30, 40, 50]
+
+nums[::2] # [10, 30, 50] (de 2 en 2)
+nums[::-1] # [50, 40, 30, 20, 10] (invertir)
+
+# Invertir una lista:
+invertida = nums[::-1]
+print(invertida) # [50, 40, 30, 20, 10]
+
+$Agregar Elementos
+Las listas son mutables: puedes cambiarlas después de crearlas
+
+$append()
+Agrega al final
+
+frutas = ["mango"]
+
+frutas.append("piña")
+frutas.append("lulo")
+
+# ["mango","piña","lulo"]
+
+$insert(i, x)
+Inserta en posición i
+
+frutas = ["mango", "lulo"]
+
+frutas.insert(1, "piña")
+
+# ["mango","piña","lulo"]
+
+
+$extend()
+Une otra lista al final
+
+a = [1, 2]
+b = [3, 4]
+
+a.extend(b)
+
+# [1, 2, 3, 4]
+
+$Modificar un elemento existente
+notas = [85, 70, 90]
+notas[1] = 78 # cambia el segundo elemento
+print(notas) # [85, 78, 90]
+
+$Ordenar Listas
+sort() — modifica la lista original
+notas = [85, 60, 92, 78]
+
+notas.sort() # ascendente
+# [60, 78, 85, 92]
+
+notas.sort(reverse=True) # descendente
+# [92, 85, 78, 60]
+sorted() — retorna nueva lista
+notas = [85, 60, 92, 78]
+
+ordenadas = sorted(notas)
+# ordenadas = [60, 78, 85, 92]
+# notas SIN cambios: [85, 60, 92, 78]
+
+desc = sorted(notas, reverse=True)
+reverse() — invierte en sitio
+nums = [1, 2, 3, 4]
+nums.reverse()
+# [4, 3, 2, 1]
+Ordenar texto
+ciudades = ["Bogotá", "Cali", "Barranquilla"]
+ciudades.sort() # orden alfabético
+# ["Barranquilla", "Bogotá", "Cali"]
+
+Eliminar Elementos
+remove(x)
+Elimina la primera ocurrencia del valor x
+
+colores = ["rojo", "azul", "rojo"]
+
+colores.remove("rojo")
+
+# ["azul", "rojo"]
+# ⚠️ ValueError si no existe
+pop(i)
+Elimina y retorna el elemento en posición i (por defecto: último)
+
+nums = [10, 20, 30]
+
+ultimo = nums.pop() # 30
+primero = nums.pop(0) # 10
+
+# nums = [20]
+del lista[i]
+Elimina el elemento en la posición i (o un slice)
+
+nums = [10, 20, 30, 40]
+
+del nums[1] # elimina 20
+# [10, 30, 40]
+
+del nums[1:3] # elimina slice
+clear()
+Vacía la lista completamente
+
+nums = [10, 20, 30]
+
+nums.clear()
+
+# nums = []
+
+$Buscar en una Lista
+in / not in
+¿Existe el elemento?
+
+frutas = ["mango", "piña"]
+
+if "mango" in frutas:
+  print("Sí está")
+
+"lulo" not in frutas
+# True
+index(x)
+Posición del elemento
+
+nums = [10, 20, 30, 20]
+
+pos = nums.index(20)
+print(pos) # 1 (primera)
+
+# ⚠️ ValueError si no existe
+count(x)
+Cuántas veces aparece
+
+letras = ["a", "b", "a", "a"]
+
+veces = letras.count("a")
+print(veces) # 3
+
+letras.count("z") # 0
+Búsqueda segura con in + index
+notas = [85, 90, 78, 92]
+buscar = int(input("¿Qué nota buscar? "))
+
+if buscar in notas:
+    print(f"Encontrada en posición: {notas.index(buscar)}")
+else:
+    print("Nota no encontrada")
+
+$Funciones Útiles con Listas
+Funciones numéricas
+notas = [85, 60, 92, 78, 70]
+
+len(notas) # 5 → cuántos elementos
+sum(notas) # 385 → suma total
+min(notas) # 60 → menor valor
+max(notas) # 92 → mayor valor
+Cálculo del promedio
+notas = [85, 60, 92, 78, 70]
+
+promedio = sum(notas) / len(notas)
+print(f"Promedio: {promedio:.2f}")
+# Promedio: 77.00
+Combinar con condicionales
+notas = [85, 60, 92, 78, 55]
+
+promedio = sum(notas) / len(notas)
+nota_maxima = max(notas)
+nota_minima = min(notas)
+
+print(f"Promedio: {promedio:.1f} | Máx: {nota_maxima} | Mín: {nota_minima}")
+
+if promedio >= 60:
+    print("¡Grupo aprobado!")
+else:
+    print("El grupo necesita mejorar")
+
+$Listas Anidadas
+Una lista puede contener otras listas como elementos — útil para tablas y matrices
+
+Crear y acceder
+# Tabla de calificaciones
+# [nombre, nota1, nota2]
+estudiantes = [
+  ["Ana", 85, 90],
+  ["Luis", 70, 78],
+  ["Sara", 92, 88]
+]
+
+# Acceder a Ana
+estudiantes[0] # ["Ana", 85, 90]
+estudiantes[0][0] # "Ana"
+estudiantes[0][1] # 85
+Trabajar con filas
+estudiantes = [
+  ["Ana", 85, 90],
+  ["Luis", 70, 78]
+]
+
+# Promedio de Ana
+ana = estudiantes[0]
+notas_ana = ana[1:] # [85, 90]
+prom = sum(notas_ana)/len(notas_ana)
+print(f"{ana[0]}: {prom}")
+# Ana: 87.5
+
+$Ejemplo Completo: Gestión de Notas
+# Gestión de notas de un estudiante
+notas = []
+
+# Agregar notas
+notas.append(float(input("Nota 1: ")))
+notas.append(float(input("Nota 2: ")))
+notas.append(float(input("Nota 3: ")))
+
+# Calcular estadísticas
+promedio = sum(notas) / len(notas)
+mejor = max(notas)
+peor = min(notas)
+
+# Ordenar para ver progresión
+notas_ord = sorted(notas)
+# Mostrar reporte
+print("=== Reporte de Notas ===")
+print(f"Notas: {notas}")
+print(f"Promedio: {promedio:.2f}")
+print(f"Mejor nota: {mejor}")
+print(f"Peor nota: {peor}")
+print(f"Ordenadas: {notas_ord}")
+
+if promedio >= 60:
+    print("Estado: ✅ Aprobado")
+else:
+    print("Estado: ❌ Reprobado")
