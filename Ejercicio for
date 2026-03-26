@@ -1,0 +1,41 @@
+ejercicio practico 
+
+
+
+# 1. Crear una lista para guardar las temperaturas
+temps = []
+
+# 1 & 2. Usar for + range(7) para pedir y guardar las temperaturas
+for i in range(7):
+    temp = float(input(f"Ingresa la temperatura del día {i + 1}: "))
+    temps.append(temp)
+
+print("-" * 20)
+
+# 3. Mostrar cada día y su temperatura usando enumerate
+# Usamos start=1 para que empiece a contar desde "Día 1"
+for i, temp in enumerate(temps, start=1):
+    print(f"Día {i}: {temp}°C")
+
+# 4. Calcular y mostrar el promedio
+promedio = sum(temps) / len(temps)
+print(f"\nPromedio: {promedio:.1f}°C")
+
+# 5. Contar cuántos días superaron los 30°C
+dias_calurosos = [t for t in temps if t > 30]
+print(f"Días sobre 30°C: {len(dias_calurosos)}")
+
+# 6. Día más caluroso
+temp_max = max(temps)
+dia_max_index = temps.index(temp_max)
+print(f"Día más caluroso: Día {dia_max_index + 1} con {temp_max}°C")
+
+# 7. Bonus: Días por encima del promedio
+print("\n-- Días sobre el promedio --")
+for i, temp in enumerate(temps, start=1):
+    if temp > promedio:
+        print(f"Día {i}: {temp}°C")
+
+# Bonus avanzado: Comprensión de listas para mostrar días calurosos
+dias_calurosos_lista = [f"Día {i+1}" for i, t in enumerate(temps) if t > 30]
+print(f"\nLista de días calurosos (avanzado): {dias_calurosos_lista}")
