@@ -1,0 +1,52 @@
+ejercici practico 
+
+# 1. Crear una lista con 5 productos que el usuario ingrese
+compras = []
+for i in range(5):
+    producto = input(f"Ingrese el producto {i+1}: ")
+    compras.append(producto)
+
+# 2. Mostrar la lista completa
+print(f"\nLista: {compras}")
+
+# 3. Agregar un producto más al final
+nuevo_producto = "azúcar" # Ejemplo de la imagen
+compras.append(nuevo_producto)
+print(f"Producto agregado: '{nuevo_producto}'")
+
+# 4. Eliminar el tercer producto de la lista (índice 2)
+# Usamos pop(2) porque los índices empiezan en 0
+producto_eliminado = compras.pop(2)
+print(f"Tercer producto eliminado: '{producto_eliminado}'")
+
+# 5. Verificar si "leche" está en la lista
+esta_leche = "leche" in compras
+print(f"¿Está 'leche'?: {esta_leche}")
+
+# 6. Ordenar la lista alfabéticamente
+compras.sort()
+print(f"Lista ordenada: {compras}")
+
+# 7. Mostrar cuántos productos quedan
+print(f"Total productos: {len(compras)}")
+
+# --- BONUS: Primer y último producto usando indexación ---
+print(f"Primer producto: {compras[0]}")
+print(f"Último producto: {compras[-1]}")
+
+
+
+
+{para programacion avanzada} 
+# Lista anidada: [nombre, precio]
+carrito = [
+    ["Arroz", 2.50],
+    ["Leche", 1.20],
+    ["Pan", 3.00]
+]
+
+total = 0
+for producto in carrito:
+    total += producto[1] # Sumamos el segundo elemento de cada sublista (el precio)
+
+print(f"Total de la compra: ${total:.2f}")
