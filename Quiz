@@ -1,0 +1,41 @@
+# =====================================================================
+# encontrar la nota más alta y listar quiénes están sobre el promedio.
+# =====================================================================
+
+# Paso 1: Crea dos listas vacías
+nombres = []
+notas = []
+
+# Paso 2: Usa un ciclo for con range(5) para pedir los datos
+for i in range(5):
+    nombre = input(f"Ingrese el nombre del estudiante {i+1}: ")
+    # Convertimos a float para poder hacer cálculos matemáticos
+    nota = float(input(f"Ingrese la nota de {nombre} (0-100): "))
+    
+    nombres.append(nombre)
+    notas.append(nota)
+
+print("\n--- Resultados Individuales ---")
+
+# Paso 3: Recorrer las listas e imprimir si aprobó o reprobó
+# Usamos range(len(nombres)) para obtener el índice y acceder a ambas listas
+for i in range(len(nombres)):
+    estado = "Aprobado" if notas[i] >= 60 else "Reprobado"
+    print(f"Nombre: {nombres[i]:<10} Nota: {notas[i]:<5} -> {estado}")
+
+# Paso 4: Calcula e imprime el promedio del salón
+promedio = sum(notas) / len(notas)
+print(f"\nEl promedio del salón es: {promedio:.2f}")
+
+# Paso 5: Encuentra la nota más alta y el nombre del estudiante
+nota_maxima = max(notas)
+indice_maximo = notas.index(nota_maxima)
+nombre_maximo = nombres[indice_maximo]
+
+print(f"La nota más alta fue de {nota_maxima}, obtenida por {nombre_maximo}.")
+
+# Paso 6: Imprimir estudiantes por encima del promedio
+print("\nEstudiantes con nota por encima del promedio:")
+for i in range(len(nombres)):
+    if notas[i] > promedio:
+        print(f"- {nombres[i]} ({notas[i]})")
